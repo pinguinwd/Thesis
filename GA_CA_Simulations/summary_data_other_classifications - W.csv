@@ -1,0 +1,12 @@
+crossover_type,crossover_rate,mutation_type,mutation_rate,mutation_std_dev,selection_type,selection_size,distance,case_study,CA_size,population_size,input_locations,input_order,input_percentage,steps,number_of_rules,sort_rules,chromosome_evol,input_loc_evol,output_loc_evol,growth_rate_mean_fitness_training,growth_rate_mean_fitness_control,growth_rate_best_fitness_training,growth_rate_best_fitness_control
+single_point,0.93666947,gaussian,,3.886544814,roulette,,euclidean,number_divided_by_two,25,16,evenly_distributed,ordered,0.16903417,25,9,WolframI,no,no,no,0,0,0,0
+none,0.412739273,bit_flip,0.08193712,,roulette,,euclidean,number_divided_by_two,20,15,random,ordered,0.64141818,17,6,WolframI,yes,yes,no,-0.001231232,0,-0.001231232,0
+none,0.143845927,bit_flip,0.1753216,,roulette,,euclidean,number_divided_by_two,15,19,evenly_distributed,random,0.157917723,29,9,WolframI,no,no,yes,,,,
+single_point,0.734595277,bit_flip,0.075518782,,roulette,,euclidean,number_plus_one,10,13,evenly_distributed,random,0.185603624,17,4,WolframII,yes,yes,no,0.00114035,0.000136667,6.05E-05,-0.001091429
+single_point,0.513990644,bit_flip,0.504097497,,roulette,,euclidean,number_plus_one,25,19,evenly_distributed,random,0.555824028,19,2,WolframII,yes,no,no,,,,
+none,0.759210132,bit_flip,0.175722606,,roulette,,euclidean,number_divided_by_two,20,8,random,ordered,0.306998379,24,4,WolframIII,yes,no,yes,,,,
+single_point,0.356408542,gaussian,,1.085526403,roulette,,manhattan,number_plus_one,15,10,random,ordered,0.631817432,24,8,WolframIII,no,no,no,8.56E-05,-6.77E-05,-0.000256635,-0.000553958
+uniform,0.027723925,bit_flip,0.697482063,,tournament,6,hamming,number_plus_one,15,9,random,ordered,0.426643807,28,6,WolframIII,yes,no,no,0.000627954,0.00022162,0.000307027,-0.000270898
+none,0.177153035,bit_flip,0.527112803,,tournament,2,hamming,number_plus_one,20,17,evenly_distributed,random,0.739803183,11,5,WolframIII,no,no,no,5.43E-05,-6.65E-05,-4.31E-05,-0.000282625
+single_point,0.892689785,bit_flip,0.01253555,,roulette,,manhattan,number_plus_one,15,10,random,ordered,0.473503655,27,8,WolframIV,yes,yes,yes,,,,
+single_point,0.041749679,bit_flip,0.20155231,,tournament,5,euclidean,number_divided_by_two,25,8,random,random,0.502065889,13,3,WolframIV,yes,no,no,-0.00019811,5.52E-05,-0.000399386,-0.000271567

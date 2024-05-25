@@ -1,0 +1,40 @@
+
+> # Example for growth_rate_mean_fitness_training
+> cat("ANOVA Results for Growth Rate Mean Fitness Training:\n")
+ANOVA Results for Growth Rate Mean Fitness Training:
+
+> # Perform the ANOVA
+> aov_result_training <- aov(growth_rate_mean_fitness_training ~ sort_rules, data = data)
+
+> summary_aov_training <- summary(aov_result_training)
+
+> print(summary_aov_training)
+            Df    Sum Sq   Mean Sq F value Pr(>F)
+sort_rules   3 2.261e-06 7.538e-07   2.341  0.252
+Residuals    3 9.660e-07 3.220e-07               
+4 observations deleted due to missingness
+
+> cat("\n\n")
+
+
+
+> # Example for growth_rate_mean_fitness_training
+> cat("ANOVA Results for Growth Rate Mean Fitness Control:\n")
+ANOVA Results for Growth Rate Mean Fitness Control:
+
+> # Perform the ANOVA
+> aov_result_control <- aov(growth_rate_mean_fitness_control ~ sort_rules, data = data)
+
+> summary_aov_control <- summary(aov_result_control)
+
+> print(summary_aov_control)
+            Df    Sum Sq   Mean Sq F value Pr(>F)
+sort_rules   3 1.313e-08 4.376e-09   0.236  0.867
+Residuals    3 5.557e-08 1.852e-08               
+4 observations deleted due to missingness
+
+> cat("\n\n")
+
+
+
+> sink()

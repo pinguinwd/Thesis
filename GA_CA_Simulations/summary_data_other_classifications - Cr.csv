@@ -1,0 +1,7 @@
+crossover_type,crossover_rate,mutation_type,mutation_rate,mutation_std_dev,selection_type,selection_size,distance,case_study,CA_size,population_size,input_locations,input_order,input_percentage,steps,number_of_rules,sort_rules,chromosome_evol,input_loc_evol,output_loc_evol,growth_rate_mean_fitness_training,growth_rate_mean_fitness_control,growth_rate_best_fitness_training,growth_rate_best_fitness_control
+uniform,0.735139507,gaussian,,8.67309559,roulette,,manhattan,number_divided_by_two,10,11,random,random,0.48542358,26,4,CrAutisticSavants,no,no,no,0.00147719,0.000831976,0,0
+uniform,0.647434768,bit_flip,0.009394059,,tournament,2,euclidean,number_plus_one,15,17,random,random,0.378585447,14,6,CrAutisticSavants,no,yes,yes,0.001372818,0.001297893,-0.003565381,-0.003465239
+single_point,0.921080721,bit_flip,0.424470089,,tournament,6,manhattan,number_divided_by_two,25,15,evenly_distributed,random,0.079206542,20,3,CrAutisticSavants,no,no,no,0.000886031,-0.000428061,0,-0.001475694
+single_point,0.509342691,bit_flip,0.00860118,,tournament,7,hamming,number_divided_by_two,20,14,random,random,0.904240446,17,7,CrCreative,yes,yes,no,0.000188521,1.91E-05,0.000105079,-5.88E-05
+none,0.186262738,bit_flip,0.018647252,,tournament,3,hamming,number_divided_by_two,25,10,random,ordered,0.615958646,13,8,CrCreative,yes,no,no,0.000156574,0.000624796,-0.000183329,0.000144901
+uniform,0.181841257,bit_flip,0.031434381,,roulette,,euclidean,number_plus_one,25,19,evenly_distributed,random,0.434952716,14,3,CrSchizophrenic,no,no,yes,-5.47E-05,4.58E-05,-0.000403851,-0.000507092

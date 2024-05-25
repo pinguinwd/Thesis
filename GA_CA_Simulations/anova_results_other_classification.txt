@@ -1,0 +1,185 @@
+
+> # Example for growth_rate_mean_fitness_training
+> cat("ANOVA Results for Growth Rate Mean Fitness Training:\n")
+ANOVA Results for Growth Rate Mean Fitness Training:
+
+> # Perform the ANOVA
+> aov_result_training <- aov(growth_rate_mean_fitness_training ~ sort_rules, data = data)
+
+> summary_aov_training <- summary(aov_result_training)
+
+> print(summary_aov_training)
+             Df    Sum Sq   Mean Sq F value Pr(>F)
+sort_rules    5 0.0000091 1.821e-06   1.458  0.204
+Residuals   272 0.0003398 1.249e-06               
+
+> cat("\n\n")
+
+
+
+> # Fit a linear model using only significant predictors
+> lm_result_significant <- lm(growth_rate_mean_fitness_training ~ sort_rules, data=data)
+
+> # Display the model summary
+> cat("Linear Model Results for Growth Rate Mean Fitness Training using Significant Predictors Only:\n")
+Linear Model Results for Growth Rate Mean Fitness Training using Significant Predictors Only:
+
+> print(summary(lm_result_significant))
+
+Call:
+lm(formula = growth_rate_mean_fitness_training ~ sort_rules, 
+    data = data)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0049454 -0.0005717 -0.0002311  0.0002988  0.0072692 
+
+Coefficients:
+                                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                    6.143e-04  1.565e-04   3.925  0.00011 ***
+sort_rulesbig_average_low_std -3.189e-05  2.260e-04  -0.141  0.88788    
+sort_rulesdifferent_behaviour -1.951e-04  2.236e-04  -0.873  0.38363    
+sort_rulesequal_behaviour      9.163e-05  2.203e-04   0.416  0.67775    
+sort_ruleslow_average_low_std  4.376e-04  2.453e-04   1.784  0.07558 .  
+sort_rulesrandom              -6.550e-05  2.300e-04  -0.285  0.77602    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.001118 on 272 degrees of freedom
+Multiple R-squared:  0.0261,	Adjusted R-squared:  0.008195 
+F-statistic: 1.458 on 5 and 272 DF,  p-value: 0.2039
+
+
+> cat("\n\nReference Levels for Categorical Variables:\n")
+
+
+Reference Levels for Categorical Variables:
+
+> reference_levels <- sapply(data, extract_reference_levels)
+
+> reference_levels <- reference_levels[!sapply(reference_levels, is.null)]
+
+> # Print the names of variables alongside their reference levels
+> print(reference_levels)
+named list()
+
+> cat("\n\n")
+
+
+
+> # Example for growth_rate_mean_fitness_training
+> cat("ANOVA Results for Growth Rate Mean Fitness Control:\n")
+ANOVA Results for Growth Rate Mean Fitness Control:
+
+> # Perform the ANOVA
+> aov_result_control <- aov(growth_rate_mean_fitness_control ~ sort_rules, data = data)
+
+> summary_aov_control <- summary(aov_result_control)
+
+> print(summary_aov_control)
+             Df    Sum Sq   Mean Sq F value Pr(>F)
+sort_rules    5 0.0000029 5.808e-07   0.614  0.689
+Residuals   272 0.0002572 9.455e-07               
+
+> cat("\n\n")
+
+
+
+> # Fit a linear model using only significant predictors
+> lm_result_significant <- lm(as.formula(significant_formula), data=data)
+
+> # Display the model summary
+> cat("Linear Model Results for Growth Rate Mean Fitness Training using Significant Predictors Only:\n")
+Linear Model Results for Growth Rate Mean Fitness Training using Significant Predictors Only:
+
+> print(summary(lm_result_significant))
+
+Call:
+lm(formula = as.formula(significant_formula), data = data)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0045321 -0.0004409 -0.0001581  0.0002786  0.0068659 
+
+Coefficients:
+                             Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                -0.0001980  0.0001077  -1.839 0.067009 .  
+crossover_typesingle_point  0.0004617  0.0001303   3.543 0.000464 ***
+crossover_typeuniform       0.0003465  0.0001380   2.510 0.012638 *  
+selection_typetournament    0.0004872  0.0001110   4.390 1.62e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0009204 on 274 degrees of freedom
+Multiple R-squared:  0.1075,	Adjusted R-squared:  0.09777 
+F-statistic: 11.01 on 3 and 274 DF,  p-value: 7.601e-07
+
+
+> cat("\n\nReference Levels for Categorical Variables:\n")
+
+
+Reference Levels for Categorical Variables:
+
+> reference_levels <- sapply(data, extract_reference_levels)
+
+> reference_levels <- reference_levels[!sapply(reference_levels, is.null)]
+
+> # Print the names of variables alongside their reference levels
+> print(reference_levels)
+named list()
+
+> cat("\n\n")
+
+
+
+> # Fit a linear model using only significant predictors
+> lm_result_significant <- lm(growth_rate_mean_fitness_training ~ sort_rules, data=data)
+
+> # Display the model summary
+> cat("Linear Model Results for Growth Rate Mean Fitness Training using Significant Predictors Only:\n")
+Linear Model Results for Growth Rate Mean Fitness Training using Significant Predictors Only:
+
+> print(summary(lm_result_significant))
+
+Call:
+lm(formula = growth_rate_mean_fitness_training ~ sort_rules, 
+    data = data)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0049454 -0.0005717 -0.0002311  0.0002988  0.0072692 
+
+Coefficients:
+                                Estimate Std. Error t value Pr(>|t|)    
+(Intercept)                    6.143e-04  1.565e-04   3.925  0.00011 ***
+sort_rulesbig_average_low_std -3.189e-05  2.260e-04  -0.141  0.88788    
+sort_rulesdifferent_behaviour -1.951e-04  2.236e-04  -0.873  0.38363    
+sort_rulesequal_behaviour      9.163e-05  2.203e-04   0.416  0.67775    
+sort_ruleslow_average_low_std  4.376e-04  2.453e-04   1.784  0.07558 .  
+sort_rulesrandom              -6.550e-05  2.300e-04  -0.285  0.77602    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.001118 on 272 degrees of freedom
+Multiple R-squared:  0.0261,	Adjusted R-squared:  0.008195 
+F-statistic: 1.458 on 5 and 272 DF,  p-value: 0.2039
+
+
+> cat("\n\nReference Levels for Categorical Variables:\n")
+
+
+Reference Levels for Categorical Variables:
+
+> reference_levels <- sapply(data, extract_reference_levels)
+
+> reference_levels <- reference_levels[!sapply(reference_levels, is.null)]
+
+> # Print the names of variables alongside their reference levels
+> print(reference_levels)
+named list()
+
+> cat("\n\n")
+
+
+
+> sink()
