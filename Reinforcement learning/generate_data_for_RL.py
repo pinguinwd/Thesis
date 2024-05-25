@@ -8,8 +8,7 @@ train_split = 0.5
 red_wine = pd.read_csv('red_wine.csv')
 
 
-
-def create_input_output(red_wine):
+def create_input_output(red_wine, train_split=0.8):
     # Sample rows from the DataFrame
     selected_rows = red_wine.sample(n=200)  # Randomly select 200 rows
 
@@ -19,28 +18,25 @@ def create_input_output(red_wine):
     # Binary transformation based on the average
     binary_transformed = selected_rows[['alcohol', 'volatile acidity', 'citric acid', 'sulphates']].ge(averages).astype(int)
 
-    # Convert binary rows to integer values
-    binary_transformed['input_key'] = binary_transformed.apply(lambda row: int(''.join(row.astype(str)), 2), axis=1)
+    # Keep the binary rows as lists of binary values
+    input_list = binary_transformed.values.tolist()
 
-    # Quality mapped to integers (assuming 'quality' is a column in the DataFrame)
-    quality_as_int = selected_rows['quality']
-
-    # Creating lists from the DataFrame columns
-    input_list = binary_transformed['input_key'].tolist()
-    output_list = quality_as_int.tolist()
+    # Quality mapped to four-bit binary lists
+    output_list = selected_rows['quality'].apply(lambda x: list(map(int, f"{x:04b}"))).tolist()
 
     # Shuffle the data while keeping input and output aligned
     combined_list = list(zip(input_list, output_list))
     np.random.shuffle(combined_list)
-    input_list, output_list = zip(*combined_list)
+    shuffled_input, shuffled_output = zip(*combined_list)
+    split_index = int(len(shuffled_input) * train_split)  # Split based on train_split percentage
 
     # Split data into training and control
-    split_index = int(len(input_list) * train_split)  # Split based on train_split percentage
-    input_train = input_list[:split_index]
-    output_train = output_list[:split_index]
-    input_control = input_list[split_index:]
-    output_control = output_list[split_index:]
+    input_train = shuffled_input[:split_index]
+    output_train = shuffled_output[:split_index]
+    input_control = shuffled_input[split_index:]
+    output_control = shuffled_output[split_index:]
 
+    return (input_train, output_train), (input_control, output_control)
 
     return (input_train, output_train), (input_control, output_control)
 
