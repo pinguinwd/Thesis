@@ -5,7 +5,7 @@ STEPS = 13
 CA_SIZE = 25
 train_split = 0.5
 
-red_wine = pd.read_csv('red_wine.csv')
+red_wine = pd.read_csv('D:\\PythonProjects\\Thesis\\red_wine.csv')
 
 
 def create_input_output(red_wine, train_split=0.8):
@@ -38,7 +38,6 @@ def create_input_output(red_wine, train_split=0.8):
 
     return (input_train, output_train), (input_control, output_control)
 
-    return (input_train, output_train), (input_control, output_control)
 
 
 def calculate_performance(state, inputs, outputs):

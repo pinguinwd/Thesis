@@ -23,7 +23,7 @@ EPSILON_DECAY = 0.995
 MIN_EPSILON = 0.01
 MAX_EPSILON = 1.0
 BATCH_SIZE = 32
-MAX_STEPS_PER_EPLODE = 10
+MAX_STEPS_PER_EPLODE = 100
 NUM_EPISODES = 500  # Define the number of episodes for training
 
 # DQN Model
