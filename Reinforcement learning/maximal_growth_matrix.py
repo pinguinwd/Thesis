@@ -85,10 +85,10 @@ def evaluate_matrix(matrix, inputs, outputs):
 # %%
 fitness = []
 for i in tqdm(range(1000), desc="Best possible for different settings"):
-    (input_train, output_train), (input_control, output_control) = create_input_output(red_wine, train_split=0.8)
+    (input_train, output_train), (input_control, output_control) = create_input_output(red_wine, train_split=0.5)
     matrix = generate_matrix(input_train, output_train)
     best_option, final_fitness = evaluate_matrix(matrix, input_train, output_train)
     fitness.append(final_fitness)
 print(fitness)
-pd.DataFrame([fitness]).to_csv('D:\\PythonProjects\\Thesis\\Reinforcement learning\\fitness.csv', index=False, header=False)
+pd.DataFrame([fitness]).to_csv('D:\\PythonProjects\\Thesis\\Reinforcement learning\\fitness_training.csv', index=False, header=False)
 # %%
