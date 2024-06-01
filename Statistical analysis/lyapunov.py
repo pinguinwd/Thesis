@@ -100,12 +100,12 @@ def langton_parameter_eca(rule_numbers):
 def create_matrices(CA_SIZE, STEPS, SIMULATIONS):
     
     #Langton
-    langton_matrix = np.zeros((255,255))
+    langton_matrix = np.zeros((256,256))
 
-    for i in range(255):
+    for i in range(256):
         #Define ruleset
         ruleset = [i] * CA_SIZE
-        for j in range(255):
+        for j in range(256):
             middle = int(np.floor(CA_SIZE/2))
             ruleset[middle] = j
 
