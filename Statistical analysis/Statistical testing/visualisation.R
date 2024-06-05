@@ -85,10 +85,25 @@ multiple_comp3 <- function(){
   # Plotly automatically adjusts hover sensitivity based on point size.
   
   # Save the interactive plot to an HTML file
-  htmlwidgets::saveWidget(p_interactive, "D:\\user\\Documents\\unief\\2e master\\Thesis\\Statistical testing\\plots2\\Average_peaksize_VS_Standard_deviation.html")
+  htmlwidgets::saveWidget(p_interactive, "D:\\PythonProjects\\Thesis\\Statistical analysis\\Statistical testing\\plots2\\Average_peaksize_VS_Standard_deviation.html")
   
   # Return or display the interactive plot if needed
   return(p_interactive)
 }
 
 multiple_comp3()
+
+ggplot(data, aes(x = Average, y = Standard.deviation)) +
+  geom_point(aes(shape = factor(Wolfram)), color = "grey", alpha = 0.5, size = 5) +  # Use one color, but vary shapes based on 'Wolfram'
+  scale_shape_manual(values = c(0, 1, 2, 3), labels = c("Option 1", "Option 2", "Option 3", "Option 4")) +  # Manually specify shapes and labels
+  labs(title = "Scatter Plot", x = "Average", y = "Standard Deviation", shape = "Wolfram") +  # Add custom labels, including legend title for shapes
+  theme_minimal()   # Using a minimal theme for aesthetics
+
+ggplot(data[data$Wolfram == 4,], aes(x = Average, y = Standard.deviation)) +
+  geom_point(color = "black", alpha = 0.5, size = 2) +  # Use one color, but vary shapes based on 'Wolfram'
+  labs(x = "Average", y = "Standard Deviation") +  # Add custom labels, including legend title for shapes
+  ylim(c(0, 0.1)) +
+  xlim(c(0,0.4))# Using a minimal theme for aesthetics
+  theme(axis.text=element_text(size=12),
+        axis.title=element_text(size=14,face="bold")) +
+  theme_minimal()

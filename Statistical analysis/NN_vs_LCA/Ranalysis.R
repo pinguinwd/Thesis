@@ -4,7 +4,8 @@ library(purrr)
 library(ggplot2)
 library(broom)
 
-data <- read.csv("D:/PythonProjects/Thesis/simulations/compiled_data.csv", header = TRUE)
+data <- read.csv("D:/PythonProjects/Thesis-data/simulations/history/compiled_data.csv", header = TRUE)
+
 
 data_long <- pivot_longer(
   data,
@@ -95,21 +96,41 @@ comparison_df$LCA_training_min <- LCA_training_df$min
 comparison_df$NN_control_min <- NN_control_df$min
 comparison_df$LCA_control_min <- LCA_control_df$min
 
-library(ggplot2)
 
-# Corrected ggplot code
+
 ggplot(comparison_df, aes(x = simulations)) +
-  geom_smooth(aes(y = NN_control_min, colour = "NN"), se = FALSE) +
-  geom_smooth(aes(y = NN_control_average, colour = "NN"), se = FALSE) +
-  geom_smooth(aes(y = NN_control_max, colour = "NN"), se = FALSE) +
-  geom_smooth(aes(y = LCA_control_min, colour = "LCA"), se = FALSE) +
-  geom_smooth(aes(y = LCA_control_average, colour = "LCA"), se = FALSE) +
-  geom_smooth(aes(y = LCA_control_max, colour = "LCA"), se = FALSE) +
+  # NN lines
+  geom_smooth(aes(y = NN_control_min, colour = "NN"), se = FALSE, linetype = "dotted") +
+  geom_smooth(aes(y = NN_control_average, colour = "NN"), se = FALSE, linetype = "solid") +
+  geom_smooth(aes(y = NN_control_max, colour = "NN"), se = FALSE, linetype = "dashed") +
+  
+  # LCA lines
+  geom_smooth(aes(y = LCA_control_min, colour = "LCA"), se = FALSE, linetype = "dotted") +
+  geom_smooth(aes(y = LCA_control_average, colour = "LCA"), se = FALSE, linetype = "solid") +
+  geom_smooth(aes(y = LCA_control_max, colour = "LCA"), se = FALSE, linetype = "dashed") +
+  
+  # Colour customisation
   scale_color_manual(values = c(
-    "NN" = "#FF0000",   
-    "LCA" = "#0000FF"
+    "NN" = "grey",   
+    "LCA" = "black"
   )) +
-  labs(title = "Comparison of min, max and average of NN and LCA",
-       x = "Simulations",
-       y = "Fitness") 
+  
+  # Theme customisation for white background
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.background = element_rect(fill = "white", colour = "white"),
+    plot.background = element_rect(fill = "white", colour = "white"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.text = element_text(color = "black"),
+    axis.title = element_text(color = "black"),
+    plot.title = element_text(hjust = 0.5)
+  ) +
+  
+  # Labels
+  labs(
+    x = "Steps",
+    y = "Fitness"
+  ) 
+
 

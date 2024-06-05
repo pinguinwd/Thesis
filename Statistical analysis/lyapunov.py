@@ -3,6 +3,10 @@ import random
 from icecream import ic
 import pandas as pd
 
+class type:
+    name = 'Generate'
+    firstrules = [i for i in range(256)]
+    secondrules = [255]
 
 def calculate_lyapnov(original, adapted):
     # Calculate the Hamming distance
