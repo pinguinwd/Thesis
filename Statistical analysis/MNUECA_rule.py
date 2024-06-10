@@ -19,7 +19,7 @@ def create_and_show_clusters(training_data, path, features, task = 'show'):
     training_array = np.array(training_data)
     
     # Define the model
-    dbscan_model = DBSCAN(eps=0.25, min_samples=10)
+    dbscan_model = DBSCAN(eps=0.25, min_samples=2)
 
     # Train the model
     dbscan_model.fit(training_array)
@@ -39,9 +39,12 @@ def create_and_show_clusters(training_data, path, features, task = 'show'):
         pyplot.scatter(training_data[features[0]], training_data[features[1]], label=f'Cluster {dbscan_cluster}')
 
     # Labeling the plot
-    pyplot.title('DBSCAN Clustering')
-    pyplot.xlabel(features[0])
-    pyplot.ylabel(features[1])
+    pyplot.title('DBSCAN Clustering', fontsize=20)
+    pyplot.xlabel(features[0], fontsize=20)
+    pyplot.ylabel(features[1], fontsize=20)
+    pyplot.xticks(fontsize = 20)
+    pyplot.yticks(fontsize = 20)
+
 
     # Save the DBSCAN plot
     im_path = path + '\\clustering.png'
@@ -53,4 +56,5 @@ def create_and_show_clusters(training_data, path, features, task = 'show'):
 
     print(f'Cluster plot saved to {im_path}')
 
-create_and_show_clusters(training_data, path, ['Average', 'Standard deviation'], 'show')
+create_and_show_clusters(training_data, path, ['Average', 'Standard deviation'], 'save')
+# %%

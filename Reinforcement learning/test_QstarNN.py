@@ -33,8 +33,9 @@ NUM_EPISODES = 100  # Define the number of episodes for training
 def build_model():
     model = Sequential([
         Input(shape=(NUM_RULES,)),  # Specify input shape here
-        Dense(64, activation='relu'),
-        Dense(64, activation='relu'),
+        Dense(14, activation='relu'),
+        Dense(14, activation='relu'),
+        Dense(14, activation='relu'),
         Dense(ACTION_SPACE_SIZE, activation='linear')
     ])
     optimizer = Adam(learning_rate=0.001, clipnorm=1.0)
@@ -51,11 +52,11 @@ def fun_step(state, action, input, output):
 
 # Training Loop
 def train_dqn(model, input, output, data_directory):
-    epsilon = MAX_EPSILON
     memory = []  # For experience replay
     rewards = []
 
     for episode in range(NUM_EPISODES):
+        epsilon = MAX_EPSILON
         state = np.random.randint(0, 256, NUM_RULES)  # Random initial state
         total_reward = []
 
